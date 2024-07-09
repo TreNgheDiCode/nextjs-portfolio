@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Lusitana } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "./provider";
+import { ModeToggle } from "@/components/ui/ModeToggle";
 
 const inter = Inter({ subsets: ["latin"] });
+const lusitana = Lusitana({ weight: ["400"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Phung Quang Long's Portfolio",
@@ -16,7 +19,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={lusitana.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <ModeToggle />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

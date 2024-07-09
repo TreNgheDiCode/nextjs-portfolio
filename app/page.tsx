@@ -1,8 +1,21 @@
+import Hero from "@/components/Hero";
+import { FloatingNav } from "@/components/ui/FloatingNavbar";
+import { HomeIcon } from "lucide-react";
+
+const navItems = [
+  {
+    name: "Home",
+    link: "/",
+    icon: <HomeIcon />,
+  },
+];
+
 export default function Home() {
   return (
-    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
-      <div className="max-w-7xl w-full">
-        <h1>Hello, Portfolio</h1>
+    <main className="bg-black-100 relative mx-auto flex flex-col items-center justify-center overflow-hidden px-5 sm:px-10">
+      <div className="w-full max-w-7xl">
+        <FloatingNav navItems={navItems} />
+        <Hero />
       </div>
     </main>
   );
