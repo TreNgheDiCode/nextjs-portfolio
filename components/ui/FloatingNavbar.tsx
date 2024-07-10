@@ -60,7 +60,7 @@ export const FloatingNav = ({
           className,
         )}
       >
-        {navItems.map((navItem: any, idx: number) => (
+        {navItems.map((navItem, idx: number) => (
           <Link
             key={`link=${idx}`}
             href={navItem.link}
@@ -69,7 +69,9 @@ export const FloatingNav = ({
             )}
           >
             <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden text-sm sm:block">{navItem.name}</span>
+            <span className="!cursor-pointer text-sm sm:block">
+              {navItem.name}
+            </span>
           </Link>
         ))}
       </motion.div>
